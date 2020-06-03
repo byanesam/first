@@ -4,18 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class writingreading extends AppCompatActivity {
-ImageButton h;
+ImageView h;
 Button adst,rdst;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writingreading);
-        h=findViewById(R.id.imageButton3);
+        h=findViewById(R.id.imageView12);
         adst=findViewById(R.id.button13);
         rdst=findViewById(R.id.button12);
 adst.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +29,7 @@ adst.setOnClickListener(new View.OnClickListener() {
 rdst.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent i2=new Intent(getApplicationContext(),readstory.class);
+        Intent i2=new Intent(getApplicationContext(),Showstories.class);
         startActivity(i2);
     }
 });

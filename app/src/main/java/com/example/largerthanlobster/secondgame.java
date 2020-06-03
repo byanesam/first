@@ -1,19 +1,22 @@
 package com.example.largerthanlobster;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 public class secondgame extends AppCompatActivity {
     EditText num;
     int rand;
-    static int count=0;
+     int count=0;
     final int min = 1;
     final int max = 100;
     Button b;
+    ImageView ho;
     ImageButton tryagain;
     TextView mes,finum,showcount,tragain;
 
@@ -28,12 +31,19 @@ public class secondgame extends AppCompatActivity {
         tragain.setText("try again");
         tragain.setVisibility(View.INVISIBLE);
         tryagain.setVisibility(View.INVISIBLE);
+        ho=findViewById(R.id.imageView9);
         rand = new Random().nextInt((max - min) + 1) + min;
         b= findViewById(R.id.button16);
         finum=findViewById(R.id.textView12);
         showcount=findViewById(R.id.textView14);
 
-
+ho.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i= new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+    }
+});
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +70,7 @@ public class secondgame extends AppCompatActivity {
                     mes.setText("you lose , try again ");
                     }
                 finum.setText("the number is "+s);
+                    b.setEnabled(false);
                     tryagain.setVisibility(View.VISIBLE);
                     tragain.setVisibility(View.VISIBLE);
                 tryagain.setOnClickListener(new View.OnClickListener() {
@@ -69,10 +80,10 @@ public class secondgame extends AppCompatActivity {
                       finum.setText(" ");
                       showcount.setText(" ");
                       mes.setText(" ");
+                      startActivity(new Intent(secondgame.this,secondgame.class));
                     }
 
                 });
-
                 }
 
             }
